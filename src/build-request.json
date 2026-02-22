@@ -1,0 +1,372 @@
+{
+  "kind": "build_request",
+  "title": "Build Mobile Best Inventory Management System",
+  "projectName": "Mobile Best Inventory",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a backend data model for products with fields: id, name, category (Cable/Charger/Handsfree/Power Bank/Cover/Tempered Glass/Other), purchasePrice, salePrice, quantity, and createdAt timestamp",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Product type includes all specified fields with appropriate data types",
+        "Category is restricted to the seven predefined values",
+        "Prices are stored as decimals/floats",
+        "Quantity is stored as integer",
+        "CreatedAt uses timestamp for tracking"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement backend CRUD operations for products: add new product, update existing product (name, category, prices, quantity), delete product by ID, and retrieve all products",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Create operation stores new product with auto-generated ID",
+        "Update operation modifies product fields while preserving ID and createdAt",
+        "Delete operation removes product by ID",
+        "Read operation returns all products as array"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Create a backend data model for sales records with fields: id, productId, productName, quantity, salePrice, purchasePrice, profit (calculated as (salePrice - purchasePrice) * quantity), and date timestamp",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Sale record links to product via productId",
+        "Profit is calculated and stored with each sale",
+        "Date timestamp records when sale occurred",
+        "Product name is denormalized for historical tracking"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Implement backend sale recording functionality that decrements product quantity when sale is recorded, validates sufficient stock exists before sale, and stores complete sale record",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Sale operation reduces product quantity by sold amount",
+        "Sale is rejected if requested quantity exceeds available stock",
+        "Sale record is created with all required fields",
+        "Product update and sale creation happen atomically"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Create backend query functions for: retrieving products with quantity below 5 (low stock alert), calculating total expected profit (sum of (salePrice - purchasePrice) * quantity for all products), getting sales filtered by date range, and calculating daily/monthly sales totals and profit",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Low stock query returns products where quantity < 5",
+        "Expected profit calculation sums potential profit across all inventory",
+        "Date range filtering works for sales records",
+        "Daily and monthly aggregations return correct totals"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Implement backend settings management for PIN security with fields: lockEnabled (boolean) and pin (4-digit string), including operations to get settings, update PIN, and toggle lock state",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Settings include lockEnabled flag and PIN storage",
+        "PIN is stored as string to preserve leading zeros",
+        "Update operations modify settings atomically",
+        "Default PIN is '1234' with lock disabled"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Build a dashboard screen displaying statistics cards for: total products count, total stock quantity sum, low stock alert count (products with quantity < 5), and expected profit calculation",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Four stat cards arranged in 2x2 grid on mobile",
+        "Low stock card highlighted with red/alert styling when count > 0",
+        "Expected profit card highlighted with green/success styling",
+        "Statistics update in real-time when data changes"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Display low stock products list on dashboard with alert banner when products exist below threshold, showing product cards with name, category, prices, quantity badge (red for low stock), and profit per item",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Alert banner appears when low stock items exist",
+        "Product cards show all key information clearly",
+        "Quantity badge is red and prominent for visibility",
+        "Empty state shown when no low stock items"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Create add product form with fields for product name (bilingual placeholder: 'e.g., iPhone Charger'), category dropdown (7 options with Urdu translations), purchase price (Rs.), sale price (Rs.), real-time profit calculation display, and quantity input",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Form includes all required fields with appropriate input types",
+        "Category dropdown shows both English and Urdu text",
+        "Profit display updates automatically as prices are entered",
+        "Form validates all fields before submission",
+        "Success message shown after product is saved"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Implement search functionality with real-time filtering of products by name, displaying matching products as cards with all details (name, category, prices, stock, profit), and showing empty state when no matches found",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Search input filters products as user types",
+        "Matching is case-insensitive on product name",
+        "Product cards show complete information",
+        "Empty state displayed for no results",
+        "Placeholder state shown before search begins"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Create sales recording interface with product dropdown showing available stock, dynamic sale details display (available stock, sale price), quantity input with stock validation, total calculation preview, and recent sales list showing today's transactions with time stamps",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Product dropdown populated with all products and their current stock",
+        "Sale details appear when product is selected",
+        "Quantity input is limited to available stock",
+        "Total sale amount calculates in real-time",
+        "Recent sales list shows transactions from today with timestamps",
+        "Success toast displays profit after sale is recorded"
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Add quick sale functionality accessible from product cards that prompts for quantity, validates against available stock, and immediately records the sale with profit feedback",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Quick sale button appears on each product card",
+        "Prompt shows product name and available quantity",
+        "Validation prevents overselling",
+        "Success message includes profit amount",
+        "Dashboard and search views update after sale"
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "text": "Build product edit modal with form pre-populated with existing product data, update functionality for all fields (name, category, prices, quantity), and delete confirmation",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Modal opens with all current product values",
+        "All product fields are editable",
+        "Update button saves changes and closes modal",
+        "Delete button shows confirmation before removing product",
+        "Modal closes on outside click or close button"
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "text": "Create reports screen displaying daily sales card (total revenue and items sold for today), monthly profit card (current month total), with date labels and proper formatting of currency amounts",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Daily sales shows today's total revenue and item count",
+        "Monthly profit shows current month's total profit",
+        "Currency amounts formatted with Rs. prefix and commas",
+        "Date labels clearly indicate reporting period",
+        "Reports update when sales are recorded"
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "text": "Implement data export functionality with buttons for: full inventory report (text format with all products and details), low stock report (list of products below threshold), downloadable as text files with date-stamped filenames",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Full report button exports all products with complete details",
+        "Low stock report exports only items with quantity < 5",
+        "Files download with descriptive names including date",
+        "Text format is readable and well-formatted",
+        "Success toast confirms export completion"
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "text": "Build PIN lock screen with 4-digit input, visual pin dots that fill as digits are entered, unlock button that validates PIN against stored setting, auto-submit when 4 digits entered, and forgot PIN option that resets to default (1234)",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Lock screen appears on app load when lock is enabled",
+        "Four dots visually indicate PIN entry progress",
+        "PIN input accepts only numeric digits",
+        "Unlock validates entered PIN against stored value",
+        "Wrong PIN shows error and clears input",
+        "Forgot PIN option resets to 1234 with confirmation",
+        "Lock screen dismisses on successful unlock"
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "text": "Create settings screen with toggle for app lock enable/disable, change PIN button that prompts for new 4-digit code with validation, backup data button that exports all products/sales/settings as JSON file, restore data button that imports from JSON backup file, and reset all data button with double confirmation",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Lock toggle shows current state and updates settings on click",
+        "Change PIN validates that new PIN is exactly 4 numeric digits",
+        "Backup exports complete data snapshot as downloadable JSON",
+        "Restore imports and validates JSON backup file structure",
+        "Reset all data requires two confirmation dialogs",
+        "Success/error toasts provide feedback for all operations",
+        "Tip message encourages adding to home screen"
+      ]
+    },
+    {
+      "id": "REQ-18",
+      "text": "Implement mobile-optimized navigation with sticky header showing app title 'Mobile Best' and subtitle 'Cash Point Inventory System', tab bar with 6 sections (Dashboard, Add, Search, Sales, Reports, Settings) using emoji icons, active tab highlighting, and smooth screen transitions",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Header is sticky at top with green gradient background",
+        "Tab bar displays all 6 navigation options",
+        "Emoji icons: 📊 Dashboard, ➕ Add, 🔍 Search, 💰 Sales, 📈 Reports, ⚙️ Settings",
+        "Active tab highlighted with green accent and background tint",
+        "Screen transitions use fade-in animation",
+        "Layout optimized for mobile viewport (max 480px)"
+      ]
+    },
+    {
+      "id": "REQ-19",
+      "text": "Apply consistent green color scheme throughout the app with primary green (#16a34a), gradient header, green accents for profit displays and success states, red alerts for low stock warnings, and white/light gray backgrounds for content areas",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Primary green (#16a34a) used for main actions and accents",
+        "Header uses green gradient (from #16a34a to #15803d)",
+        "Profit values displayed in green",
+        "Low stock items use red (#ef4444) highlights",
+        "Background uses subtle green gradient (#f0fdf4 to #dcfce7)",
+        "White cards with light gray borders for content"
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "text": "Create mobile-first responsive design with max-width 480px container, touch-friendly tap targets (minimum 44px), smooth animations and transitions, bottom toast notifications for feedback, and proper mobile viewport meta tags",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "App container constrained to 480px width on larger screens",
+        "All buttons and interactive elements are touch-friendly sized",
+        "Animations use fade and slide effects for polish",
+        "Toast messages appear from bottom with auto-dismiss",
+        "Viewport set to device-width with no user scaling",
+        "Tap highlight color removed for native app feel"
+      ]
+    }
+  ],
+  "constraints": [
+    "All data persistence must use backend stable storage, not frontend localStorage",
+    "PIN security validation must happen on backend",
+    "Currency amounts must be formatted with Rs. prefix and proper number formatting",
+    "Product quantity must be validated to prevent negative stock",
+    "Maximum app container width is 480px for mobile optimization",
+    "All forms must validate input before submission",
+    "Date filtering for sales must work correctly across different timezones"
+  ],
+  "nonGoals": [
+    "Multi-user support or user authentication beyond PIN lock",
+    "Cloud synchronization or remote backup",
+    "Barcode scanning functionality",
+    "Integration with external payment systems",
+    "Multi-language full translation (only bilingual field labels needed)",
+    "Desktop or tablet optimized layouts",
+    "Offline-first PWA capabilities",
+    "Print functionality for reports"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

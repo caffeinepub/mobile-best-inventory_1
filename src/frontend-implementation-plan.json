@@ -1,0 +1,350 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Mobile Best Inventory Management System - Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-7",
+      "summary": "Build dashboard screen with statistics cards showing total products, total stock, low stock alerts, and expected profit",
+      "acceptanceCriteria": [
+        "Four stat cards arranged in 2x2 grid on mobile",
+        "Low stock card highlighted with red/alert styling when count > 0",
+        "Expected profit card highlighted with green/success styling",
+        "Statistics update in real-time when data changes"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Dashboard.tsx",
+          "operation": "create",
+          "description": "Create Dashboard component that fetches all products from backend using getAllProducts() and getLowStockProducts() methods, calculates statistics (total products count, total stock quantity sum, low stock count, expected profit), and displays four statistic cards in a 2x2 grid with appropriate styling (red for low stock alerts, green for profit). Uses React hooks for state management and real-time updates."
+        },
+        {
+          "path": "frontend/src/components/StatCard.tsx",
+          "operation": "create",
+          "description": "Create reusable StatCard component that accepts props for title, value, emoji icon, and optional highlight color (red/green). Renders a card with consistent styling matching the mobile-first design with touch-friendly sizing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Display low stock products list on dashboard with alert banner and product cards showing details",
+      "acceptanceCriteria": [
+        "Alert banner appears when low stock items exist",
+        "Product cards show all key information clearly",
+        "Quantity badge is red and prominent for visibility",
+        "Empty state shown when no low stock items"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Dashboard.tsx",
+          "operation": "modify",
+          "description": "Add low stock products section below statistics cards. Display alert banner when getLowStockProducts() returns items. Render ProductCard components for each low stock item with red quantity badges. Show empty state when no low stock items exist."
+        },
+        {
+          "path": "frontend/src/components/ProductCard.tsx",
+          "operation": "create",
+          "description": "Create ProductCard component that displays product name, category with Urdu translation, purchase price (Rs.), sale price (Rs.), quantity with red badge for low stock, and profit per item calculation. Includes action buttons (edit, quick sale). Uses green color scheme for profit, red for low stock warnings."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Create add product form with bilingual placeholders, category dropdown, price inputs, real-time profit calculation, and validation",
+      "acceptanceCriteria": [
+        "Form includes all required fields with appropriate input types",
+        "Category dropdown shows both English and Urdu text",
+        "Profit display updates automatically as prices are entered",
+        "Form validates all fields before submission",
+        "Success message shown after product is saved"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/AddProduct.tsx",
+          "operation": "create",
+          "description": "Create AddProduct screen component with form fields: name (text input with bilingual placeholder 'e.g., iPhone Charger'), category dropdown (Cable/Charger/Handsfree/Power Bank/Cover/Tempered Glass/Other with Urdu translations), purchasePrice (number input with Rs. prefix), salePrice (number input with Rs. prefix), quantity (number input). Display real-time profit calculation (salePrice - purchasePrice). On submit, validate all fields and call backend addProduct() method with ProductInput. Show success toast on completion. Uses green accent colors and mobile-optimized layout."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Implement real-time product search with filtering by name and results display",
+      "acceptanceCriteria": [
+        "Search input filters products as user types",
+        "Matching is case-insensitive on product name",
+        "Product cards show complete information",
+        "Empty state displayed for no results",
+        "Placeholder state shown before search begins"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Search.tsx",
+          "operation": "create",
+          "description": "Create Search screen component with search input field that filters products in real-time using case-insensitive name matching. Fetch all products using getAllProducts() backend method. Display matching products as ProductCard components with complete details. Show placeholder state before search begins and empty state when no matches found. Uses mobile-optimized search input styling."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Create sales recording interface with product selection, stock validation, total calculation, and recent sales list",
+      "acceptanceCriteria": [
+        "Product dropdown populated with all products and their current stock",
+        "Sale details appear when product is selected",
+        "Quantity input is limited to available stock",
+        "Total sale amount calculates in real-time",
+        "Recent sales list shows transactions from today with timestamps",
+        "Success toast displays profit after sale is recorded"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Sales.tsx",
+          "operation": "create",
+          "description": "Create Sales screen component with product dropdown populated from getAllProducts(), displaying available stock and sale price when product selected. Quantity input validates against available stock. Display real-time total calculation (quantity * salePrice). On submit, call backend recordSale(productId, quantity) method. Show success toast with profit amount. Below form, display recent sales list filtered to today's transactions using getSalesByDateRange() backend method with timestamps. Uses green accent colors for profit displays."
+        },
+        {
+          "path": "frontend/src/components/SaleItem.tsx",
+          "operation": "create",
+          "description": "Create SaleItem component that displays individual sale record with product name, quantity sold, sale price, profit, and timestamp formatted as time of day. Uses compact card layout for mobile."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Add quick sale functionality to product cards with quantity prompt and stock validation",
+      "acceptanceCriteria": [
+        "Quick sale button appears on each product card",
+        "Prompt shows product name and available quantity",
+        "Validation prevents overselling",
+        "Success message includes profit amount",
+        "Dashboard and search views update after sale"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ProductCard.tsx",
+          "operation": "modify",
+          "description": "Add quick sale button to ProductCard component. On click, show quantity prompt dialog displaying product name and available stock. Validate entered quantity against available stock. Call backend recordSale(productId, quantity) method. Show success toast with calculated profit amount. Trigger parent component refresh to update displays."
+        },
+        {
+          "path": "frontend/src/components/QuickSaleDialog.tsx",
+          "operation": "create",
+          "description": "Create QuickSaleDialog component that prompts for sale quantity with product name and available stock display. Validates input against stock limit. Includes cancel and confirm actions. Uses modal/dialog pattern with mobile-friendly touch targets."
+        }
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "summary": "Build product edit modal with pre-populated form, update functionality, and delete confirmation",
+      "acceptanceCriteria": [
+        "Modal opens with all current product values",
+        "All product fields are editable",
+        "Update button saves changes and closes modal",
+        "Delete button shows confirmation before removing product",
+        "Modal closes on outside click or close button"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/EditProductModal.tsx",
+          "operation": "create",
+          "description": "Create EditProductModal component that accepts product as prop and pre-populates form fields (name, category, purchasePrice, salePrice, quantity). On update, call backend updateProduct(id, ProductInput) method. Delete button shows confirmation dialog before calling deleteProduct(id) backend method. Modal closes on save, delete, outside click, or close button. Uses green accent styling and mobile-optimized layout."
+        },
+        {
+          "path": "frontend/src/components/ProductCard.tsx",
+          "operation": "modify",
+          "description": "Add edit button to ProductCard component that opens EditProductModal with current product data. Handle modal open/close state and refresh parent on product update or deletion."
+        }
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "summary": "Create reports screen displaying daily sales and monthly profit cards with proper formatting",
+      "acceptanceCriteria": [
+        "Daily sales shows today's total revenue and item count",
+        "Monthly profit shows current month's total profit",
+        "Currency amounts formatted with Rs. prefix and commas",
+        "Date labels clearly indicate reporting period",
+        "Reports update when sales are recorded"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Reports.tsx",
+          "operation": "create",
+          "description": "Create Reports screen component that fetches sales data using getSalesByDateRange() backend method for today (daily sales) and current month (monthly profit). Display two report cards: daily sales card showing total revenue and items sold count for today, monthly profit card showing current month total profit. Format currency with Rs. prefix and comma separators. Include clear date labels for reporting periods. Uses green accent styling for profit displays."
+        },
+        {
+          "path": "frontend/src/components/ReportCard.tsx",
+          "operation": "create",
+          "description": "Create ReportCard component that displays report title, period label, primary metric (revenue/profit), and optional secondary metric (item count). Uses consistent card styling with green accents."
+        }
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "summary": "Implement data export functionality for full inventory and low stock reports as downloadable text files",
+      "acceptanceCriteria": [
+        "Full report button exports all products with complete details",
+        "Low stock report exports only items with quantity < 5",
+        "Files download with descriptive names including date",
+        "Text format is readable and well-formatted",
+        "Success toast confirms export completion"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Reports.tsx",
+          "operation": "modify",
+          "description": "Add export functionality to Reports screen with two buttons: full inventory report and low stock report. Full report fetches all products using getAllProducts() and formats as text with all product details. Low stock report uses getLowStockProducts() for items with quantity < 5. Generate downloadable text files with date-stamped filenames (e.g., inventory-report-YYYY-MM-DD.txt). Show success toast after export completion. Uses browser download API."
+        },
+        {
+          "path": "frontend/src/utils/exportHelpers.ts",
+          "operation": "create",
+          "description": "Create export helper functions for formatting product data as readable text and triggering file downloads with date-stamped filenames. Includes formatProductReport() for full inventory and formatLowStockReport() for low stock items."
+        }
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "summary": "Build PIN lock screen with 4-digit input, visual dots, validation, auto-submit, and forgot PIN reset",
+      "acceptanceCriteria": [
+        "Lock screen appears on app load when lock is enabled",
+        "Four dots visually indicate PIN entry progress",
+        "PIN input accepts only numeric digits",
+        "Unlock validates entered PIN against stored value",
+        "Wrong PIN shows error and clears input",
+        "Forgot PIN option resets to 1234 with confirmation",
+        "Lock screen dismisses on successful unlock"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/PinLockScreen.tsx",
+          "operation": "create",
+          "description": "Create PinLockScreen component that displays when lock is enabled. Shows four visual dots that fill as digits entered. Numeric-only input with auto-submit when 4 digits entered. Fetches settings using getSettings() backend method to get stored PIN. Validates entered PIN against stored value. Shows error message and clears input on wrong PIN. Forgot PIN option calls updatePin('1234') backend method with confirmation dialog. Dismisses lock screen on successful unlock. Uses green gradient header and mobile-optimized layout."
+        },
+        {
+          "path": "frontend/src/hooks/useLockScreen.ts",
+          "operation": "create",
+          "description": "Create useLockScreen hook that manages lock screen state, checks if lock is enabled using getSettings() backend method, handles unlock logic, and provides lock screen visibility control throughout the app."
+        }
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "summary": "Create settings screen with lock toggle, PIN change, backup/restore, and reset functionality",
+      "acceptanceCriteria": [
+        "Lock toggle shows current state and updates settings on click",
+        "Change PIN validates that new PIN is exactly 4 numeric digits",
+        "Backup exports complete data snapshot as downloadable JSON",
+        "Restore imports and validates JSON backup file structure",
+        "Reset all data requires two confirmation dialogs",
+        "Success/error toasts provide feedback for all operations",
+        "Tip message encourages adding to home screen"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Settings.tsx",
+          "operation": "create",
+          "description": "Create Settings screen component with lock enable/disable toggle that calls toggleLock() backend method. Change PIN button prompts for new 4-digit PIN with validation (numeric, exactly 4 digits) and calls updatePin(newPin) backend method. Backup button fetches all data (getAllProducts(), getSalesByDateRange() for all time, getSettings()) and exports as downloadable JSON file. Restore button accepts JSON file upload and validates structure before restoring data. Reset all data button shows two confirmation dialogs before clearing all data. Display tip message about adding to home screen. Show success/error toasts for all operations. Uses green accent styling."
+        },
+        {
+          "path": "frontend/src/components/ChangePinDialog.tsx",
+          "operation": "create",
+          "description": "Create ChangePinDialog component that prompts for new PIN with validation (exactly 4 numeric digits). Shows current PIN entry progress with dots. Confirms new PIN is valid before calling backend updatePin() method. Uses modal pattern with mobile-friendly input."
+        },
+        {
+          "path": "frontend/src/utils/backupHelpers.ts",
+          "operation": "create",
+          "description": "Create backup helper functions for exporting complete data snapshot as JSON and validating/importing backup files. Includes generateBackup() and restoreFromBackup() functions."
+        }
+      ]
+    },
+    {
+      "id": "REQ-18",
+      "summary": "Implement mobile-optimized navigation with sticky header, tab bar with 6 sections, active highlighting, and smooth transitions",
+      "acceptanceCriteria": [
+        "Header is sticky at top with green gradient background",
+        "Tab bar displays all 6 navigation options",
+        "Emoji icons: 📊 Dashboard, ➕ Add, 🔍 Search, 💰 Sales, 📈 Reports, ⚙️ Settings",
+        "Active tab highlighted with green accent and background tint",
+        "Screen transitions use fade-in animation",
+        "Layout optimized for mobile viewport (max 480px)"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Modify App component to implement mobile navigation structure with sticky header showing 'Mobile Best' title and 'Cash Point Inventory System' subtitle with green gradient background. Add tab bar with 6 navigation options (Dashboard 📊, Add ➕, Search 🔍, Sales 💰, Reports 📈, Settings ⚙️) using emoji icons. Implement active tab highlighting with green accent and background tint. Add screen transition animations (fade-in). Integrate PinLockScreen component that shows when lock is enabled. Manage navigation state and route to appropriate screen components."
+        },
+        {
+          "path": "frontend/src/components/TabBar.tsx",
+          "operation": "create",
+          "description": "Create TabBar component that displays 6 navigation tabs with emoji icons and labels. Handles active tab state and highlighting with green accent colors. Uses mobile-optimized touch-friendly sizing (minimum 44px tap targets). Fixed position at bottom for easy thumb access."
+        },
+        {
+          "path": "frontend/src/components/Header.tsx",
+          "operation": "create",
+          "description": "Create Header component with sticky positioning, green gradient background (from #16a34a to #15803d), displaying 'Mobile Best' title and 'Cash Point Inventory System' subtitle. Uses mobile-optimized typography."
+        }
+      ]
+    },
+    {
+      "id": "REQ-19",
+      "summary": "Apply consistent green color scheme with primary green, gradient header, profit accents, low stock alerts, and light backgrounds",
+      "acceptanceCriteria": [
+        "Primary green (#16a34a) used for main actions and accents",
+        "Header uses green gradient (from #16a34a to #15803d)",
+        "Profit values displayed in green",
+        "Low stock items use red (#ef4444) highlights",
+        "Background uses subtle green gradient (#f0fdf4 to #dcfce7)",
+        "White cards with light gray borders for content"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Modify global CSS to define color scheme: primary green (#16a34a), dark green (#15803d) for gradients, red (#ef4444) for alerts, light green backgrounds (#f0fdf4 to #dcfce7 gradient). Set white cards with light gray borders. Apply green color to profit displays, red to low stock warnings. Define gradient classes for header background."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind config to include custom green color palette (primary: #16a34a, dark: #15803d), red alert color (#ef4444), and light green background shades (#f0fdf4, #dcfce7). Configure gradient utilities for header."
+        }
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "summary": "Create mobile-first responsive design with 480px max-width, touch-friendly targets, animations, toast notifications, and viewport configuration",
+      "acceptanceCriteria": [
+        "App container constrained to 480px width on larger screens",
+        "All buttons and interactive elements are touch-friendly sized",
+        "Animations use fade and slide effects for polish",
+        "Toast messages appear from bottom with auto-dismiss",
+        "Viewport set to device-width with no user scaling",
+        "Tap highlight color removed for native app feel"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap app content in container with max-width 480px, centered on larger screens. Ensure all interactive elements use minimum 44px tap targets. Add fade and slide animation classes for screen transitions."
+        },
+        {
+          "path": "frontend/src/components/Toast.tsx",
+          "operation": "create",
+          "description": "Create Toast component for bottom notifications with auto-dismiss functionality. Supports success, error, and info variants. Slides up from bottom with fade animation. Uses green accent for success, red for errors."
+        },
+        {
+          "path": "frontend/src/hooks/useToast.ts",
+          "operation": "create",
+          "description": "Create useToast hook that manages toast notification state and provides showToast() function for displaying messages throughout the app."
+        },
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Update viewport meta tag to device-width with no user scaling for native app feel. Remove tap highlight color with CSS for cleaner mobile experience."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add animation keyframes for fade-in, slide-up, and other transition effects. Set -webkit-tap-highlight-color to transparent for native feel. Define touch-friendly minimum sizes for interactive elements."
+        }
+      ]
+    }
+  ]
+}

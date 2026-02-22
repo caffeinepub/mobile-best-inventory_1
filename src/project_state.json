@@ -1,0 +1,219 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Mobile inventory management system (Mobile Best) with product tracking, sales recording, profit calculation, low stock alerts, PIN lock security, and data backup/restore capabilities",
+  "architectural_notes": [
+    "Mobile-first responsive design (max-width 480px)",
+    "localStorage for client-side data persistence",
+    "Multi-language support (English/Urdu labels)",
+    "Six main screens: Dashboard, Add, Search, Sales, Reports, Settings",
+    "Product categories: Cable, Charger, Handsfree, Power Bank, Cover, Tempered Glass, Other",
+    "Low stock threshold set at 5 units"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-build-a-dashboard-screen-displaying-statistics-cards-for-total-products-count-total-stock-quantity-sum-low-stock-alert-count-products-with-quantity-5-and-expected-profit-calculation",
+      "title": "Build a dashboard screen displaying statistics cards for: total products count, total stock quantity sum, low stock alert count (products with quantity < 5), and expected profit calculation",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-display-low-stock-products-list-on-dashboard-with-alert-banner-when-products-exist-below-threshold-showing-product-cards-with-name-category-prices-quantity-badge-red-for-low-stock-and-profit-per-item",
+      "title": "Display low stock products list on dashboard with alert banner when products exist below threshold, showing product cards with name, category, prices, quantity badge (red for low stock), and profit per item",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-add-product-form-with-fields-for-product-name-bilingual-placeholder-e-g-iphone-charger-category-dropdown-7-options-with-urdu-translations-purchase-price-rs-sale-price-rs-real-time-profit-calculation-display-and-quantity-input",
+      "title": "Create add product form with fields for product name (bilingual placeholder: 'e.g., iPhone Charger'), category dropdown (7 options with Urdu translations), purchase price (Rs.), sale price (Rs.), real-time profit calculation display, and quantity input",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-search-functionality-with-real-time-filtering-of-products-by-name-displaying-matching-products-as-cards-with-all-details-name-category-prices-stock-profit-and-showing-empty-state-when-no-matches-found",
+      "title": "Implement search functionality with real-time filtering of products by name, displaying matching products as cards with all details (name, category, prices, stock, profit), and showing empty state when no matches found",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-sales-recording-interface-with-product-dropdown-showing-available-stock-dynamic-sale-details-display-available-stock-sale-price-quantity-input-with-stock-validation-total-calculation-preview-and-recent-sales-list-showing-today-s-transactions-with-time-stamps",
+      "title": "Create sales recording interface with product dropdown showing available stock, dynamic sale details display (available stock, sale price), quantity input with stock validation, total calculation preview, and recent sales list showing today's transactions with time stamps",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-quick-sale-functionality-accessible-from-product-cards-that-prompts-for-quantity-validates-against-available-stock-and-immediately-records-the-sale-with-profit-feedback",
+      "title": "Add quick sale functionality accessible from product cards that prompts for quantity, validates against available stock, and immediately records the sale with profit feedback",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-product-edit-modal-with-form-pre-populated-with-existing-product-data-update-functionality-for-all-fields-name-category-prices-quantity-and-delete-confirmation",
+      "title": "Build product edit modal with form pre-populated with existing product data, update functionality for all fields (name, category, prices, quantity), and delete confirmation",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-reports-screen-displaying-daily-sales-card-total-revenue-and-items-sold-for-today-monthly-profit-card-current-month-total-with-date-labels-and-proper-formatting-of-currency-amounts",
+      "title": "Create reports screen displaying daily sales card (total revenue and items sold for today), monthly profit card (current month total), with date labels and proper formatting of currency amounts",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-data-export-functionality-with-buttons-for-full-inventory-report-text-format-with-all-products-and-details-low-stock-report-list-of-products-below-threshold-downloadable-as-text-files-with-date-stamped-filenames",
+      "title": "Implement data export functionality with buttons for: full inventory report (text format with all products and details), low stock report (list of products below threshold), downloadable as text files with date-stamped filenames",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-pin-lock-screen-with-4-digit-input-visual-pin-dots-that-fill-as-digits-are-entered-unlock-button-that-validates-pin-against-stored-setting-auto-submit-when-4-digits-entered-and-forgot-pin-option-that-resets-to-default-1234",
+      "title": "Build PIN lock screen with 4-digit input, visual pin dots that fill as digits are entered, unlock button that validates PIN against stored setting, auto-submit when 4 digits entered, and forgot PIN option that resets to default (1234)",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-settings-screen-with-toggle-for-app-lock-enable-disable-change-pin-button-that-prompts-for-new-4-digit-code-with-validation-backup-data-button-that-exports-all-products-sales-settings-as-json-file-restore-data-button-that-imports-from-json-backup-file-and-reset-all-data-button-with-double-confirmation",
+      "title": "Create settings screen with toggle for app lock enable/disable, change PIN button that prompts for new 4-digit code with validation, backup data button that exports all products/sales/settings as JSON file, restore data button that imports from JSON backup file, and reset all data button with double confirmation",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-mobile-optimized-navigation-with-sticky-header-showing-app-title-mobile-best-and-subtitle-cash-point-inventory-system-tab-bar-with-6-sections-dashboard-add-search-sales-reports-settings-using-emoji-icons-active-tab-highlighting-and-smooth-screen-transitions",
+      "title": "Implement mobile-optimized navigation with sticky header showing app title 'Mobile Best' and subtitle 'Cash Point Inventory System', tab bar with 6 sections (Dashboard, Add, Search, Sales, Reports, Settings) using emoji icons, active tab highlighting, and smooth screen transitions",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-consistent-green-color-scheme-throughout-the-app-with-primary-green-16a34a-gradient-header-green-accents-for-profit-displays-and-success-states-red-alerts-for-low-stock-warnings-and-white-light-gray-backgrounds-for-content-areas",
+      "title": "Apply consistent green color scheme throughout the app with primary green (#16a34a), gradient header, green accents for profit displays and success states, red alerts for low stock warnings, and white/light gray backgrounds for content areas",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-mobile-first-responsive-design-with-max-width-480px-container-touch-friendly-tap-targets-minimum-44px-smooth-animations-and-transitions-bottom-toast-notifications-for-feedback-and-proper-mobile-viewport-meta-tags",
+      "title": "Create mobile-first responsive design with max-width 480px container, touch-friendly tap targets (minimum 44px), smooth animations and transitions, bottom toast notifications for feedback, and proper mobile viewport meta tags",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Product inventory with add/edit/delete/search",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Sales recording with profit tracking",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Dashboard with statistics and low stock alerts",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Reports (daily/monthly sales, low stock export)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "PIN lock security system",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Data backup and restore functionality",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Create a backend data model for products with fields: id, name, category (Cable/Charger/Handsfree/Power Bank/Cover/Tempered Glass/Other), purchasePrice, salePrice, quantity, and createdAt timestamp",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Implement backend CRUD operations for products: add new product, update existing product (name, category, prices, quantity), delete product by ID, and retrieve all products",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Create a backend data model for sales records with fields: id, productId, productName, quantity, salePrice, purchasePrice, profit (calculated as (salePrice - purchasePrice) * quantity), and date timestamp",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Implement backend sale recording functionality that decrements product quantity when sale is recorded, validates sufficient stock exists before sale, and stores complete sale record",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Create backend query functions for: retrieving products with quantity below 5 (low stock alert), calculating total expected profit (sum of (salePrice - purchasePrice) * quantity for all products), getting sales filtered by date range, and calculating daily/monthly sales totals and profit",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Implement backend settings management for PIN security with fields: lockEnabled (boolean) and pin (4-digit string), including operations to get settings, update PIN, and toggle lock state",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Mobile Best Inventory",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

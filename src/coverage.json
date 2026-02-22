@@ -1,0 +1,361 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-22T05:48:41.888Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 20,
+    "implemented": 14,
+    "items": [
+      {
+        "id": "REQ-1",
+        "summary": "Create a backend data model for products with fields: id, name, category (Cable/Charger/Handsfree/Power Bank/Cover/Tempered Glass/Other), purchasePrice, salePrice, quantity, and createdAt timestamp",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-10",
+        "summary": "Implement search functionality with real-time filtering of products by name, displaying matching products as cards with all details (name, category, prices, stock, profit), and showing empty state when no matches found",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Search.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Search.tsx"
+        ]
+      },
+      {
+        "id": "REQ-11",
+        "summary": "Create sales recording interface with product dropdown showing available stock, dynamic sale details display (available stock, sale price), quantity input with stock validation, total calculation preview, and recent sales list showing today's transactions with time stamps",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Sales.tsx",
+          "frontend/src/components/SaleItem.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Sales.tsx",
+          "frontend/src/components/SaleItem.tsx"
+        ]
+      },
+      {
+        "id": "REQ-12",
+        "summary": "Add quick sale functionality accessible from product cards that prompts for quantity, validates against available stock, and immediately records the sale with profit feedback",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/ProductCard.tsx",
+          "frontend/src/components/QuickSaleDialog.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/ProductCard.tsx",
+          "frontend/src/components/QuickSaleDialog.tsx"
+        ]
+      },
+      {
+        "id": "REQ-13",
+        "summary": "Build product edit modal with form pre-populated with existing product data, update functionality for all fields (name, category, prices, quantity), and delete confirmation",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/EditProductModal.tsx",
+          "frontend/src/components/ProductCard.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/EditProductModal.tsx",
+          "frontend/src/components/ProductCard.tsx"
+        ]
+      },
+      {
+        "id": "REQ-14",
+        "summary": "Create reports screen displaying daily sales card (total revenue and items sold for today), monthly profit card (current month total), with date labels and proper formatting of currency amounts",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Reports.tsx",
+          "frontend/src/components/ReportCard.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Reports.tsx",
+          "frontend/src/components/ReportCard.tsx"
+        ]
+      },
+      {
+        "id": "REQ-15",
+        "summary": "Implement data export functionality with buttons for: full inventory report (text format with all products and details), low stock report (list of products below threshold), downloadable as text files with date-stamped filenames",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Reports.tsx",
+          "frontend/src/utils/exportHelpers.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Reports.tsx",
+          "frontend/src/utils/exportHelpers.ts"
+        ]
+      },
+      {
+        "id": "REQ-16",
+        "summary": "Build PIN lock screen with 4-digit input, visual pin dots that fill as digits are entered, unlock button that validates PIN against stored setting, auto-submit when 4 digits entered, and forgot PIN option that resets to default (1234)",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/PinLockScreen.tsx",
+          "frontend/src/hooks/useLockScreen.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/PinLockScreen.tsx",
+          "frontend/src/hooks/useLockScreen.ts"
+        ]
+      },
+      {
+        "id": "REQ-17",
+        "summary": "Create settings screen with toggle for app lock enable/disable, change PIN button that prompts for new 4-digit code with validation, backup data button that exports all products/sales/settings as JSON file, restore data button that imports from JSON backup file, and reset all data button with double confirmation",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Settings.tsx",
+          "frontend/src/components/ChangePinDialog.tsx",
+          "frontend/src/utils/backupHelpers.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Settings.tsx",
+          "frontend/src/components/ChangePinDialog.tsx",
+          "frontend/src/utils/backupHelpers.ts"
+        ]
+      },
+      {
+        "id": "REQ-18",
+        "summary": "Implement mobile-optimized navigation with sticky header showing app title 'Mobile Best' and subtitle 'Cash Point Inventory System', tab bar with 6 sections (Dashboard, Add, Search, Sales, Reports, Settings) using emoji icons, active tab highlighting, and smooth screen transitions",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/App.tsx",
+          "frontend/src/components/TabBar.tsx",
+          "frontend/src/components/Header.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/App.tsx",
+          "frontend/src/components/TabBar.tsx",
+          "frontend/src/components/Header.tsx"
+        ]
+      },
+      {
+        "id": "REQ-19",
+        "summary": "Apply consistent green color scheme throughout the app with primary green (#16a34a), gradient header, green accents for profit displays and success states, red alerts for low stock warnings, and white/light gray backgrounds for content areas",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js"
+        ],
+        "matchedFiles": [
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Implement backend CRUD operations for products: add new product, update existing product (name, category, prices, quantity), delete product by ID, and retrieve all products",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-20",
+        "summary": "Create mobile-first responsive design with max-width 480px container, touch-friendly tap targets (minimum 44px), smooth animations and transitions, bottom toast notifications for feedback, and proper mobile viewport meta tags",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/App.tsx",
+          "frontend/src/components/Toast.tsx",
+          "frontend/src/hooks/useToast.ts",
+          "frontend/index.html",
+          "frontend/src/index.css"
+        ],
+        "matchedFiles": [
+          "frontend/src/App.tsx",
+          "frontend/index.html",
+          "frontend/src/index.css"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Create a backend data model for sales records with fields: id, productId, productName, quantity, salePrice, purchasePrice, profit (calculated as (salePrice - purchasePrice) * quantity), and date timestamp",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-4",
+        "summary": "Implement backend sale recording functionality that decrements product quantity when sale is recorded, validates sufficient stock exists before sale, and stores complete sale record",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-5",
+        "summary": "Create backend query functions for: retrieving products with quantity below 5 (low stock alert), calculating total expected profit (sum of (salePrice - purchasePrice) * quantity for all products), getting sales filtered by date range, and calculating daily/monthly sales totals and profit",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-6",
+        "summary": "Implement backend settings management for PIN security with fields: lockEnabled (boolean) and pin (4-digit string), including operations to get settings, update PIN, and toggle lock state",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-7",
+        "summary": "Build a dashboard screen displaying statistics cards for: total products count, total stock quantity sum, low stock alert count (products with quantity < 5), and expected profit calculation",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Dashboard.tsx",
+          "frontend/src/components/StatCard.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Dashboard.tsx",
+          "frontend/src/components/StatCard.tsx"
+        ]
+      },
+      {
+        "id": "REQ-8",
+        "summary": "Display low stock products list on dashboard with alert banner when products exist below threshold, showing product cards with name, category, prices, quantity badge (red for low stock), and profit per item",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Dashboard.tsx",
+          "frontend/src/components/ProductCard.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Dashboard.tsx",
+          "frontend/src/components/ProductCard.tsx"
+        ]
+      },
+      {
+        "id": "REQ-9",
+        "summary": "Create add product form with fields for product name (bilingual placeholder: 'e.g., iPhone Charger'), category dropdown (7 options with Urdu translations), purchase price (Rs.), sale price (Rs.), real-time profit calculation display, and quantity input",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/AddProduct.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/AddProduct.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/main.mo",
+    "build-request.json",
+    "build-template/Dockerfile",
+    "build-template/LICENSE",
+    "build-template/README.md",
+    "build-template/deploy.sh",
+    "build-template/icp.yaml",
+    "build-template/package.json",
+    "build-template/pnpm-lock.yaml",
+    "build-template/pnpm-workspace.yaml",
+    "build-template/scripts/prune-unused-images.js",
+    "build-template/scripts/resize-images.js",
+    "build-template/src/backend/canister.yaml",
+    "build-template/src/backend/system-idl/aaaaa-aa.did",
+    "build-template/src/frontend/canister.yaml",
+    "build-template/src/frontend/components.json",
+    "build-template/src/frontend/env.json",
+    "build-template/src/frontend/eslint-rules/no-bigint-in-query-keys.js",
+    "build-template/src/frontend/eslint-rules/require-internet-identity-provider.js",
+    "build-template/src/frontend/eslint.config.js",
+    "build-template/src/frontend/package.json",
+    "build-template/src/frontend/postcss.config.js",
+    "build-template/src/frontend/src/components/ui/accordion.tsx",
+    "build-template/src/frontend/src/components/ui/alert-dialog.tsx",
+    "build-template/src/frontend/src/components/ui/alert.tsx",
+    "build-template/src/frontend/src/components/ui/aspect-ratio.tsx",
+    "build-template/src/frontend/src/components/ui/avatar.tsx",
+    "build-template/src/frontend/src/components/ui/badge.tsx",
+    "build-template/src/frontend/src/components/ui/breadcrumb.tsx",
+    "build-template/src/frontend/src/components/ui/button.tsx",
+    "build-template/src/frontend/src/components/ui/calendar.tsx",
+    "build-template/src/frontend/src/components/ui/card.tsx",
+    "build-template/src/frontend/src/components/ui/carousel.tsx",
+    "build-template/src/frontend/src/components/ui/chart.tsx",
+    "build-template/src/frontend/src/components/ui/checkbox.tsx",
+    "build-template/src/frontend/src/components/ui/collapsible.tsx",
+    "build-template/src/frontend/src/components/ui/command.tsx",
+    "build-template/src/frontend/src/components/ui/context-menu.tsx",
+    "build-template/src/frontend/src/components/ui/dialog.tsx",
+    "build-template/src/frontend/src/components/ui/drawer.tsx",
+    "build-template/src/frontend/src/components/ui/dropdown-menu.tsx",
+    "build-template/src/frontend/src/components/ui/form.tsx",
+    "build-template/src/frontend/src/components/ui/hover-card.tsx",
+    "build-template/src/frontend/src/components/ui/input-otp.tsx",
+    "build-template/src/frontend/src/components/ui/input.tsx",
+    "build-template/src/frontend/src/components/ui/label.tsx",
+    "build-template/src/frontend/src/components/ui/menubar.tsx",
+    "build-template/src/frontend/src/components/ui/navigation-menu.tsx",
+    "build-template/src/frontend/src/components/ui/pagination.tsx",
+    "build-template/src/frontend/src/components/ui/popover.tsx",
+    "build-template/src/frontend/src/components/ui/progress.tsx",
+    "build-template/src/frontend/src/components/ui/radio-group.tsx",
+    "build-template/src/frontend/src/components/ui/resizable.tsx",
+    "build-template/src/frontend/src/components/ui/scroll-area.tsx",
+    "build-template/src/frontend/src/components/ui/select.tsx",
+    "build-template/src/frontend/src/components/ui/separator.tsx",
+    "build-template/src/frontend/src/components/ui/sheet.tsx",
+    "build-template/src/frontend/src/components/ui/sidebar.tsx",
+    "build-template/src/frontend/src/components/ui/skeleton.tsx",
+    "build-template/src/frontend/src/components/ui/slider.tsx",
+    "build-template/src/frontend/src/components/ui/sonner.tsx",
+    "build-template/src/frontend/src/components/ui/switch.tsx",
+    "build-template/src/frontend/src/components/ui/table.tsx",
+    "build-template/src/frontend/src/components/ui/tabs.tsx",
+    "build-template/src/frontend/src/components/ui/textarea.tsx",
+    "build-template/src/frontend/src/components/ui/toggle-group.tsx",
+    "build-template/src/frontend/src/components/ui/toggle.tsx",
+    "build-template/src/frontend/src/components/ui/tooltip.tsx",
+    "build-template/src/frontend/src/hooks/use-mobile.tsx",
+    "build-template/src/frontend/src/lib/utils.ts",
+    "build-template/src/frontend/tsconfig.json",
+    "build-template/src/frontend/vite.config.js",
+    "build-template/tsconfig.json",
+    "caffeine.lock.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/AddProduct.tsx",
+    "frontend/src/components/ChangePinDialog.tsx",
+    "frontend/src/components/Dashboard.tsx",
+    "frontend/src/components/EditProductModal.tsx",
+    "frontend/src/components/Header.tsx",
+    "frontend/src/components/PinLockScreen.tsx",
+    "frontend/src/components/ProductCard.tsx",
+    "frontend/src/components/QuickSaleDialog.tsx",
+    "frontend/src/components/ReportCard.tsx",
+    "frontend/src/components/Reports.tsx",
+    "frontend/src/components/SaleItem.tsx",
+    "frontend/src/components/Sales.tsx",
+    "frontend/src/components/Search.tsx",
+    "frontend/src/components/Settings.tsx",
+    "frontend/src/components/StatCard.tsx",
+    "frontend/src/components/TabBar.tsx",
+    "frontend/src/config.ts",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useLockScreen.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/src/ui-summary.json",
+    "frontend/src/utils/StorageClient.ts",
+    "frontend/src/utils/backupHelpers.ts",
+    "frontend/src/utils/exportHelpers.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

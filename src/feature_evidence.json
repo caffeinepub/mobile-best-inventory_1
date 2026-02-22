@@ -1,0 +1,272 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-build-a-dashboard-screen-displaying-statistics-cards-for-total-products-count-total-stock-quantity-sum-low-stock-alert-count-products-with-quantity-5-and-expected-profit-calculation",
+      "featureTitle": "Build a dashboard screen displaying statistics cards for: total products count, total stock quantity sum, low stock alert count (products with quantity < 5), and expected profit calculation",
+      "files": [
+        "frontend/src/components/Dashboard.tsx",
+        "frontend/src/components/StatCard.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-display-low-stock-products-list-on-dashboard-with-alert-banner-when-products-exist-below-threshold-showing-product-cards-with-name-category-prices-quantity-badge-red-for-low-stock-and-profit-per-item",
+      "featureTitle": "Display low stock products list on dashboard with alert banner when products exist below threshold, showing product cards with name, category, prices, quantity badge (red for low stock), and profit per item",
+      "files": [
+        "frontend/src/components/Dashboard.tsx",
+        "frontend/src/components/ProductCard.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-add-product-form-with-fields-for-product-name-bilingual-placeholder-e-g-iphone-charger-category-dropdown-7-options-with-urdu-translations-purchase-price-rs-sale-price-rs-real-time-profit-calculation-display-and-quantity-input",
+      "featureTitle": "Create add product form with fields for product name (bilingual placeholder: 'e.g., iPhone Charger'), category dropdown (7 options with Urdu translations), purchase price (Rs.), sale price (Rs.), real-time profit calculation display, and quantity input",
+      "files": [
+        "frontend/src/components/AddProduct.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-search-functionality-with-real-time-filtering-of-products-by-name-displaying-matching-products-as-cards-with-all-details-name-category-prices-stock-profit-and-showing-empty-state-when-no-matches-found",
+      "featureTitle": "Implement search functionality with real-time filtering of products by name, displaying matching products as cards with all details (name, category, prices, stock, profit), and showing empty state when no matches found",
+      "files": [
+        "frontend/src/components/Search.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-sales-recording-interface-with-product-dropdown-showing-available-stock-dynamic-sale-details-display-available-stock-sale-price-quantity-input-with-stock-validation-total-calculation-preview-and-recent-sales-list-showing-today-s-transactions-with-time-stamps",
+      "featureTitle": "Create sales recording interface with product dropdown showing available stock, dynamic sale details display (available stock, sale price), quantity input with stock validation, total calculation preview, and recent sales list showing today's transactions with time stamps",
+      "files": [
+        "frontend/src/components/SaleItem.tsx",
+        "frontend/src/components/Sales.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-quick-sale-functionality-accessible-from-product-cards-that-prompts-for-quantity-validates-against-available-stock-and-immediately-records-the-sale-with-profit-feedback",
+      "featureTitle": "Add quick sale functionality accessible from product cards that prompts for quantity, validates against available stock, and immediately records the sale with profit feedback",
+      "files": [
+        "frontend/src/components/ProductCard.tsx",
+        "frontend/src/components/QuickSaleDialog.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-12"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-product-edit-modal-with-form-pre-populated-with-existing-product-data-update-functionality-for-all-fields-name-category-prices-quantity-and-delete-confirmation",
+      "featureTitle": "Build product edit modal with form pre-populated with existing product data, update functionality for all fields (name, category, prices, quantity), and delete confirmation",
+      "files": [
+        "frontend/src/components/EditProductModal.tsx",
+        "frontend/src/components/ProductCard.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-13"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-reports-screen-displaying-daily-sales-card-total-revenue-and-items-sold-for-today-monthly-profit-card-current-month-total-with-date-labels-and-proper-formatting-of-currency-amounts",
+      "featureTitle": "Create reports screen displaying daily sales card (total revenue and items sold for today), monthly profit card (current month total), with date labels and proper formatting of currency amounts",
+      "files": [
+        "frontend/src/components/ReportCard.tsx",
+        "frontend/src/components/Reports.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-14"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-data-export-functionality-with-buttons-for-full-inventory-report-text-format-with-all-products-and-details-low-stock-report-list-of-products-below-threshold-downloadable-as-text-files-with-date-stamped-filenames",
+      "featureTitle": "Implement data export functionality with buttons for: full inventory report (text format with all products and details), low stock report (list of products below threshold), downloadable as text files with date-stamped filenames",
+      "files": [
+        "frontend/src/components/Reports.tsx",
+        "frontend/src/utils/exportHelpers.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-15"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-pin-lock-screen-with-4-digit-input-visual-pin-dots-that-fill-as-digits-are-entered-unlock-button-that-validates-pin-against-stored-setting-auto-submit-when-4-digits-entered-and-forgot-pin-option-that-resets-to-default-1234",
+      "featureTitle": "Build PIN lock screen with 4-digit input, visual pin dots that fill as digits are entered, unlock button that validates PIN against stored setting, auto-submit when 4 digits entered, and forgot PIN option that resets to default (1234)",
+      "files": [
+        "frontend/src/components/PinLockScreen.tsx",
+        "frontend/src/hooks/useLockScreen.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-16"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-settings-screen-with-toggle-for-app-lock-enable-disable-change-pin-button-that-prompts-for-new-4-digit-code-with-validation-backup-data-button-that-exports-all-products-sales-settings-as-json-file-restore-data-button-that-imports-from-json-backup-file-and-reset-all-data-button-with-double-confirmation",
+      "featureTitle": "Create settings screen with toggle for app lock enable/disable, change PIN button that prompts for new 4-digit code with validation, backup data button that exports all products/sales/settings as JSON file, restore data button that imports from JSON backup file, and reset all data button with double confirmation",
+      "files": [
+        "frontend/src/components/ChangePinDialog.tsx",
+        "frontend/src/components/Settings.tsx",
+        "frontend/src/utils/backupHelpers.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-17"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-mobile-optimized-navigation-with-sticky-header-showing-app-title-mobile-best-and-subtitle-cash-point-inventory-system-tab-bar-with-6-sections-dashboard-add-search-sales-reports-settings-using-emoji-icons-active-tab-highlighting-and-smooth-screen-transitions",
+      "featureTitle": "Implement mobile-optimized navigation with sticky header showing app title 'Mobile Best' and subtitle 'Cash Point Inventory System', tab bar with 6 sections (Dashboard, Add, Search, Sales, Reports, Settings) using emoji icons, active tab highlighting, and smooth screen transitions",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Header.tsx",
+        "frontend/src/components/TabBar.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-18"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-consistent-green-color-scheme-throughout-the-app-with-primary-green-16a34a-gradient-header-green-accents-for-profit-displays-and-success-states-red-alerts-for-low-stock-warnings-and-white-light-gray-backgrounds-for-content-areas",
+      "featureTitle": "Apply consistent green color scheme throughout the app with primary green (#16a34a), gradient header, green accents for profit displays and success states, red alerts for low stock warnings, and white/light gray backgrounds for content areas",
+      "files": [
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-19"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-mobile-first-responsive-design-with-max-width-480px-container-touch-friendly-tap-targets-minimum-44px-smooth-animations-and-transitions-bottom-toast-notifications-for-feedback-and-proper-mobile-viewport-meta-tags",
+      "featureTitle": "Create mobile-first responsive design with max-width 480px container, touch-friendly tap targets (minimum 44px), smooth animations and transitions, bottom toast notifications for feedback, and proper mobile viewport meta tags",
+      "files": [
+        "frontend/index.html",
+        "frontend/src/App.tsx",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-20"
+      ],
+      "confidence": "high"
+    }
+  ]
+}
